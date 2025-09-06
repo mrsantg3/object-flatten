@@ -1,0 +1,45 @@
+{
+  "name": "object-flatten",
+  "version": "1.0.0",
+  "description": "Flatten nested objects into dot-notation keys (TS, ESM+CJS)",
+  "license": "MIT",
+  "author": "Seu Nome <you@example.com>",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=16"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format esm,cjs --clean",
+    "dev": "tsup src/index.ts --dts --format esm,cjs --watch",
+    "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test",
+    "lint": "eslint 'src/**/*.{ts,tsx}' 'test/**/*.{ts,tsx}'"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "@types/jest": "^30.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
+    "eslint": "^9.35.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.1",
+    "tsup": "^8.0.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.42.0"
+  }
+}
