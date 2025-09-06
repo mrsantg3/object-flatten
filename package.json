@@ -1,9 +1,9 @@
 {
-  "name": "object-flatten",
+  "name": "flattenfy",
   "version": "1.0.0",
   "description": "Flatten nested objects into dot-notation keys (TS, ESM+CJS)",
   "license": "MIT",
-  "author": "Seu Nome <you@example.com>",
+  "author": "Marcelo Santos",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

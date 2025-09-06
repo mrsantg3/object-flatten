@@ -1,17 +1,17 @@
-# object-flatten
+# flattenfy
 
 > Flatten nested objects into dot-notation keys
 
 ## 📦 Install
 
 ```bash
-npm install object-flatten
+npm install flattenfy
 ```
 
 ## 🚀 Usage
 
 ```ts
-import flattenObject from "object-flatten";
+import flattenfy from "flattenfy";
 
 const data = {
   a: { b: { c: 1 } },
@@ -20,15 +20,15 @@ const data = {
 };
 
 // Default (keeps arrays intact)
-console.log(flattenObject(data));
+console.log(flattenfy(data));
 // → { "a.b.c": 1, "d": 2, "g": [ {x:1}, {y:2} ] }
 
 // Expand arrays
-console.log(flattenObject(data, { expandArrays: true }));
+console.log(flattenfy(data, { expandArrays: true }));
 // → { "a.b.c": 1, "d": 2, "g.0.x": 1, "g.1.y": 2 }
 
 // Custom separator
-console.log(flattenObject(data, { separator: "_" }));
+console.log(flattenfy(data, { separator: "_" }));
 // → { "a_b_c": 1, "d": 2, "g": [ {x:1}, {y:2} ] }
 ```
 

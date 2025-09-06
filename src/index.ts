@@ -8,7 +8,7 @@ export type {FlattenOptions, Indexable} from "./types";
  *
  * Uses an iterative BFS queue to avoid call stack overflows on very deep objects.
  */
-export function flattenObject<T extends Indexable>(
+export function flattenfy<T extends Indexable>(
     obj: T,
     opts: FlattenOptions = {}
 ): Record<string, unknown> {
@@ -75,4 +75,4 @@ export function flattenObject<T extends Indexable>(
     return out;
 }
 
-export default flattenObject;
+export default flattenfy;
