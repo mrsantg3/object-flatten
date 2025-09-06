@@ -2,6 +2,7 @@
 
 
 import {Indexable} from "./types";
+import type { NonPlainCtor } from "./types";
 
 /** Checks if a value is a plain object (no prototype or Object.prototype). */
 export function isPlainObject(value: unknown): value is Indexable {
@@ -16,12 +17,14 @@ export function isDate(value: unknown): value is Date {
 }
 
 /**
- * Creates a checker function for instances that should NOT be traversed.
- * Example: Date, Map, Set, URL, etc.
+ * Creates a checker for instances that should NOT be traversed.
+ * e.g. Date, Map, Set, URL
  */
-export function makeNonPlainChecker(nonPlainInstances: Array<Function>) {
-    return (v: unknown) => nonPlainInstances.some((Ctor) => v instanceof Ctor);
+export function makeNonPlainChecker(nonPlainInstances: ReadonlyArray<NonPlainCtor>) {
+    return (v: unknown): boolean =>
+        nonPlainInstances.some((Ctor) => v instanceof Ctor);
 }
+
 
 // Helpers for key composition
 
